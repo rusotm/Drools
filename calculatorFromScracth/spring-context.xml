@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:kie="http://drools.org/schema/kie-spring"
+	xsi:schemaLocation="
+       http://drools.org/schema/kie-spring   
+	https://raw.githubusercontent.com/droolsjbpm/droolsjbpm-integration/master/kie-spring/src/main/resources/org/kie/spring/kie-spring-6.0.0.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	
+	<!-- <bean id="testClass" class="org.rustom.shroff.calculatorFromScracth.TestClass" /> -->
+	<bean id="rulesKieSession" class="org.rustom.shroff.calculatorFromScracth.RulesKieSession" />
+	<bean id="compoundRulesKieSession" class="org.rustom.shroff.calculatorFromScracth.compundRules.CompoundRulesKieSession" />
+	<bean id="compoundRules2KieSession" class="org.rustom.shroff.calculatorFromScracth.compundRules.CompoundRules2KieSession" />
+	<bean id="decisionTableRulesKieSession" class="org.rustom.shroff.calculatorFromScracth.compundRules.DecisionTableRulesKieSession" />
+	<bean id="compoundDecisionTableRulesKieSession" class="org.rustom.shroff.calculatorFromScracth.compundRules.CompoundDecisionTableRulesKieSession" />
+	<bean id="ruleHelperRulesKieSession" class="org.rustom.shroff.calculatorFromScracth.compundRules.RuleHelperRulesKieSession" />
+</beans>

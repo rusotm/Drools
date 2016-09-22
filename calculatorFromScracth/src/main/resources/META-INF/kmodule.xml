@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
+    <kbase name="rules" packages="rules">
+        <ksession name="ksession-rules"/>
+    </kbase>
+    
+    <kbase name="compoundRules" packages="compoundRules">
+        <ksession name="compoundRules-ksession-rules"/>
+    </kbase>
+    
+     <kbase name="compoundRules2" packages="compoundRules2">
+        <ksession name="compoundRules2-ksession-rules"/>
+    </kbase>
+    
+    <kbase name="decisionTable" packages="decisionTable">
+        <ksession name="decisionTableRulesRules-ksession-rules"/>
+    </kbase>
+    
+    <kbase name="compoundDecisionTable" packages="compoundDecisionTable">
+        <ksession name="compoundDecisionTableRulesRules-ksession-rules"/>
+    </kbase>
+    
+     <kbase name="ruleHelperRules" packages="ruleHelperRules">
+        <ksession name="ruleHelperRules-ksession-rules"/>
+    </kbase>
+    
+</kmodule>

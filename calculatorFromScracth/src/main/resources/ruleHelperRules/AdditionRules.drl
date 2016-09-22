@@ -1,0 +1,21 @@
+//created on: Sep 8, 2016
+package org.rustom.shroff.calculatorFromScracth
+
+//list any import classes here.
+import org.rustom.shroff.calculatorFromScracth.Calculation
+import org.rustom.shroff.ruleHelper.RuleUtility
+
+//declare any global variables here
+
+
+
+
+rule "Addition Rule"
+	salience 1
+    when
+        myCalculation: Calculation( operation.equals("addition"))
+    then
+    	RuleUtility.addition(myCalculation);
+end
+
+

@@ -1,0 +1,32 @@
+//created on: Sep 8, 2016
+package org.rustom.shroff.calculatorFromScracth
+
+//list any import classes here.
+//import org.rustom.shroff.calculatorFromScracth.Calculation
+
+
+//declare any global variables here
+
+
+
+
+rule "compound Addition Rule with person"
+	
+    when
+    	//myPerson: Person(name.equals("rustom"), myCaclulation: calculation)
+        //requiredCalculation: Calculation( this == myCalculation, operation.equals("addition"), myA : a, myB: b, myResult: result )
+        //aCalculation: Calculation(operation.equals("addition"), myA : a, myB: b, myResult: result )
+		//Person(name.equals("rustom"), calculation == aCalculation, myCalculation: calculation )
+		myPerson : Person(name.equals("rustom"), calculation.operation.equals("addition"), myA : calculation.a, myB: calculation.b, myResult: calculation.result)
+		//requiredCalculation: Calculation(this == myCalculation, operation.equals("addition"), myA : a, myB: b, myResult: result )
+    then
+    	myPerson.getCalculation().setResult(myA+myB);
+    	//requiredCalculation.setResult(myA+myB);
+    	//myResult = myA+myB;
+    	//result = myResult;
+        System.out.println( "addition of "+ myA +" and "+ myB +" is "+ myPerson.getCalculation().getResult());
+        //System.out.println("yoman");
+        
+end
+
+

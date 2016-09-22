@@ -1,0 +1,25 @@
+//created on: Sep 8, 2016
+package org.rustom.shroff.calculatorFromScracth
+
+//list any import classes here.
+import org.rustom.shroff.calculatorFromScracth.Calculation
+import org.rustom.shroff.ruleHelper.RuleUtility
+
+//declare any global variables here
+
+rule "Subtraction Rule"
+    //include attributes such as "salience" here...
+    no-loop // Not applicable here but can be very usfull to remove infinite loops.
+    salience myA // higher priority then the above rule. Hence it will execute before Addition Rule.
+    enabled (myA != myB)
+    when
+       myCalculation : Calculation( operation.equals("subtraction"), myA : a, myB: b, myResult: result )
+    then
+    
+        RuleUtility.subtraction(myCalculation);
+    	
+		//use update or modify statement here for chaing to another rule
+		modify(myCalculation){
+			setOperation("addition")   //This statement translates to myCalculation.setOperation
+		} //The modify rule will still have to be in the Drl file as there is no equivalent syntax in Java
+end
