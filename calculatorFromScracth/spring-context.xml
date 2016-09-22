@@ -9,6 +9,7 @@
 	
 	<!-- <bean id="testClass" class="org.rustom.shroff.calculatorFromScracth.TestClass" /> -->
 	<bean id="rulesKieSession" class="org.rustom.shroff.calculatorFromScracth.RulesKieSession" />
+	<bean id="ruleOrderRulesKieSession" class="org.rustom.shroff.calculatorFromScracth.compundRules.RuleOrderRulesKieSession" />
 	<bean id="compoundRulesKieSession" class="org.rustom.shroff.calculatorFromScracth.compundRules.CompoundRulesKieSession" />
 	<bean id="compoundRules2KieSession" class="org.rustom.shroff.calculatorFromScracth.compundRules.CompoundRules2KieSession" />
 	<bean id="decisionTableRulesKieSession" class="org.rustom.shroff.calculatorFromScracth.compundRules.DecisionTableRulesKieSession" />
