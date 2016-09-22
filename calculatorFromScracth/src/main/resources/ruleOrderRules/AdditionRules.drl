@@ -1,0 +1,25 @@
+//created on: Sep 8, 2016
+package org.rustom.shroff.calculatorFromScracth
+
+//list any import classes here.
+import org.rustom.shroff.calculatorFromScracth.Calculation
+
+
+//declare any global variables here
+
+
+
+
+rule "Addition Rule"
+	salience 1
+    when
+        myCalculation: Calculation( operation.equals("addition"), myA : a, myB: b, myResult: result )
+    then
+    	myCalculation.setResult(myA+myB);
+    	//result = myResult;
+        System.out.println( "addition of "+ myA +" and "+ myB +" is "+ myCalculation.getResult());
+        
+
+end
+
+
