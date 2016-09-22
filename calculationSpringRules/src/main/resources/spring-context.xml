@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:kie="http://drools.org/schema/kie-spring"
+	xsi:schemaLocation="
+       http://drools.org/schema/kie-spring 
+		https://raw.githubusercontent.com/droolsjbpm/droolsjbpm-integration/master/kie-spring/src/main/resources/org/kie/spring/kie-spring-6.0.0.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- <kie:import releaseId-ref="kjarToUse" />
+	<kie:releaseId id="kjarToUse" groupId="org.drools.devguide"
+		artifactId="chapter-11-kjar" version="1.0.0" /> -->
+	<!-- <context:annotation-config />
+	<context:component-scan base-package="src" /> -->
+
+	<kie:kmodule id="kie-spring-sample">
+		<kie:kbase name="rules">
+			<kie:ksession name="ksession1" />
+		</kie:kbase>
+	</kie:kmodule>
+
+	<bean id="kiePostProcessor" class="org.kie.spring.KModuleBeanFactoryPostProcessor" />
+
+
+	<!-- <bean id="calculation" class="org.rustom.shroff.calculationSpringRules.Calculation">
+		<property name="a" value="10" />
+		<property name="b" value="20" />
+		<property name="operation" value="addition" />
+	</bean> -->
+</beans>
