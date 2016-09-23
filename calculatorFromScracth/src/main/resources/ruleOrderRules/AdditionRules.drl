@@ -12,12 +12,16 @@ import org.rustom.shroff.calculatorFromScracth.Calculation
 
 rule "Addition Rule"
 	salience 1
+	agenda-group "addition"  //agenda will take precedence over salience
     when
         myCalculation: Calculation( operation.equals("addition"), myA : a, myB: b, myResult: result )
     then
     	myCalculation.setResult(myA+myB);
     	//result = myResult;
         System.out.println( "addition of "+ myA +" and "+ myB +" is "+ myCalculation.getResult());
+        kcontext.getKnowledgeRuntime().getAgenda().getAgendaGroup("MAIN").setFocus();
+       	 
+       //main is the default agenda group for all the rools present in a kbase
         
 
 end

@@ -36,11 +36,13 @@ public class RuleOrderRulesTest {
 			Calculation multiplicationCalculation = new Calculation(4, 5, "multiplication");
 			Calculation unregisteredCalculation = new Calculation(4, 5, "unregistered");
 			
-			
+			kSession.insert(additionCalculation);
 			kSession.insert(subtractionCalculation);
 			kSession.insert(disabledRuleExample);
 			kSession.insert(unregisteredCalculation);
-
+			
+			//kSession.getAgenda().getAgendaGroup("addition").setFocus();  //this is how you specify which agenda-group should be executed.
+			
 			// go !
 			// Firing the engine for the first time
 			int noOfRulesExecuted = kSession.fireAllRules();
@@ -48,7 +50,7 @@ public class RuleOrderRulesTest {
 			System.out.println("No of rules executed " + noOfRulesExecuted);
 			
 			//Firing the engine for the second time. Want to show that the state of the engine along with all its objects are retained.
-			kSession.insert(additionCalculation);
+			
 			noOfRulesExecuted = kSession.fireAllRules();
 			System.out.println("No of rules executed " + noOfRulesExecuted);
 			
