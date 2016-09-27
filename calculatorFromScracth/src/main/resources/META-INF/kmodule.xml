@@ -4,10 +4,6 @@
         <ksession name="ksession-rules"/>
     </kbase>
     
-    <kbase name="ruleOrderRules" packages="ruleOrderRules">
-        <ksession name="ruleOrderRules-ksession-rules"/>
-    </kbase>
-    
     <kbase name="compoundRules" packages="compoundRules">
         <ksession name="compoundRules-ksession-rules"/>
     </kbase>
