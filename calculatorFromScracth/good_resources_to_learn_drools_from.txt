@@ -1,0 +1,5 @@
+For BPM tutorials
+http://www.schabell.org/
+
+For workbench installation
+http://mswiderski.blogspot.com/2015/10/installing-kie-server-and-workbench-on.html 

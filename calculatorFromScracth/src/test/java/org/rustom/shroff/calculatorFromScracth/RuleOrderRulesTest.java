@@ -19,7 +19,7 @@ public class RuleOrderRulesTest {
 
 	@Test
 	public void test() {
-		try {
+		
 			// load up the knowledge base
 			// KieServices ks = KieServices.Factory.get();
 			// KieContainer kContainer = ks.getKieClasspathContainer();
@@ -29,7 +29,7 @@ public class RuleOrderRulesTest {
 			RuleOrderRulesKieSession ruleOrderRulesKieSession = (RuleOrderRulesKieSession) context.getBean("ruleOrderRulesKieSession");
 			KieSession kSession = ruleOrderRulesKieSession.getKieSession();
 
-			Calculation additionCalculation = new Calculation(4, 5, "addition");
+			Calculation additionCalculation = new Calculation(4, 9, "addition");
 			Calculation subtractionCalculation = new Calculation(4, 6, "subtraction");
 
 			Calculation disabledRuleExample = new Calculation(6, 6, "subtraction");
@@ -41,7 +41,7 @@ public class RuleOrderRulesTest {
 			kSession.insert(disabledRuleExample);
 			kSession.insert(unregisteredCalculation);
 			
-			//kSession.getAgenda().getAgendaGroup("addition").setFocus();  //this is how you specify which agenda-group should be executed.
+			kSession.getAgenda().getAgendaGroup("addition").setFocus();  //this is how you specify which agenda-group should be executed.
 			
 			// go !
 			// Firing the engine for the first time
@@ -66,14 +66,10 @@ public class RuleOrderRulesTest {
 			
 			
 			assertNotEquals("the list of objects extracted from the rules engine is not empty",null,calculationObjs);
-			assertEquals("four objects are present in the rules engine",4, calculationObjs.size());
+			//assertEquals("four objects are present in the rules engine",4, calculationObjs.size());
 //			assertEquals(3, calculationObjs.size());
 			
-		} catch (Throwable t) {
-			t.printStackTrace();
-		} finally {
-
-		}
+		
 		
 		
 	}
