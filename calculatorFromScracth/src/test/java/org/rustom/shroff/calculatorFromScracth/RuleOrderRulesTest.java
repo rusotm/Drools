@@ -4,7 +4,10 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
 import org.junit.Test;
 import org.kie.api.runtime.ClassObjectFilter;
@@ -29,7 +32,7 @@ public class RuleOrderRulesTest {
 			RuleOrderRulesKieSession ruleOrderRulesKieSession = (RuleOrderRulesKieSession) context.getBean("ruleOrderRulesKieSession");
 			KieSession kSession = ruleOrderRulesKieSession.getKieSession();
 
-			Calculation additionCalculation = new Calculation(4, 9, "addition");
+			Calculation additionCalculation = new Calculation(11, 1, "addition");
 			Calculation subtractionCalculation = new Calculation(4, 6, "subtraction");
 
 			Calculation disabledRuleExample = new Calculation(6, 6, "subtraction");
@@ -49,27 +52,35 @@ public class RuleOrderRulesTest {
 			
 			System.out.println("No of rules executed " + noOfRulesExecuted);
 			
-			//Firing the engine for the second time. Want to show that the state of the engine along with all its objects are retained.
-			
-			noOfRulesExecuted = kSession.fireAllRules();
-			System.out.println("No of rules executed " + noOfRulesExecuted);
+			/*//Way to retrieve object from the drools engine after all the rules have been fired
+			Collection<?> calculationObjs = kSession.getObjects(new ClassObjectFilter(Object.class));*/
 			
 			
-			//Way to retrieve object from the drools engine after all the rules have been fired
-			Collection<?> calculationObjs = kSession.getObjects(new ClassObjectFilter(Object.class));
-			
-			
-			for(Object calculation: calculationObjs){
+			 Collection<?> calculationObjs = kSession.getObjects(new ObjectFilter() {
+//            @Override
+            public boolean accept(Object obj) {
+               // return ((obj instanceof Calculation));
+                if(obj instanceof Calculation){
+                	Calculation tempCalculation = (Calculation) obj;
+                	 return (tempCalculation.getA() == 11);
+                }
+                return false;
+            }
+        });
+			List<Calculation> calculationList = new ArrayList(calculationObjs);
+			 
+			for(Object calculation: calculationList){
 				System.out.println((Calculation) calculation);
 			}
 			
 			
 			
+			
 			assertNotEquals("the list of objects extracted from the rules engine is not empty",null,calculationObjs);
-			//assertEquals("four objects are present in the rules engine",4, calculationObjs.size());
+			assertEquals("the result should be 12",12, calculationList.get(0).getResult());
 //			assertEquals(3, calculationObjs.size());
 			
-		
+			
 		
 		
 	}

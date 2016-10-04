@@ -62,7 +62,7 @@ public class FilteringObjectsInRulesEngineTest {
 			System.out.println("No of rules executed " + noOfRulesExecuted);
 
 			//Way to retrieve all the objects from the drools engine.
-			Collection<?> calculationObjs = kSession.getObjects(new ClassObjectFilter(Object.class));
+//			Collection<?> calculationObjs = kSession.getObjects(new ClassObjectFilter(Object.class));
 			
 			//Way to retrieve object from the drools engine after all the rules have been fired
 //			Collection<?> calculationObjs = kSession.getObjects(new ClassObjectFilter(Calculation.class));
@@ -70,7 +70,7 @@ public class FilteringObjectsInRulesEngineTest {
 			
 			//This can be used to perform complex types of filtering.
 			
-	        /*Collection<?> calculationObjs = kSession.getObjects(new ObjectFilter() {
+	        Collection<?> calculationObjs = kSession.getObjects(new ObjectFilter() {
 	            //@Override
 	            public boolean accept(Object obj) {
 //	                return ((obj instanceof Calculation));
@@ -80,7 +80,7 @@ public class FilteringObjectsInRulesEngineTest {
 	                }
 	                return false;
 	            }
-	        });*/
+	        });
 			
 			
 			

@@ -3,3 +3,8 @@ http://www.schabell.org/
 
 For workbench installation
 http://mswiderski.blogspot.com/2015/10/installing-kie-server-and-workbench-on.html 
+
+
+command to run workbench 
+
+standalone.bat --server-config=standalone-full.xml -Dorg.kie.server.id=wildfly-kieserver -Dorg.kie.server.location=http://localhost:8080/kie-server/services/rest/server -Dorg.kie.server.controller=http://localhost:8080/kie-wb/rest/controller -Dorg.kie.server.persistence.ds=java:jboss/datasources/jbpmDS -Dorg.kie.server.persistence.dialect=org.hibernate.dialect.MySQL5Dialect

@@ -15,6 +15,8 @@ public class SpreadsheetCompiler1 {
 
 	public static void main(String[] args){
 		String path = "C:/Users/prokarma/workspace_Mars_Drools/calculatorFromScracth/src/main/resources/compoundDecisionTable/compoundDecisionTable.xls";
+		
+		
 		testSpreadsheet(path);
 	}
 	
