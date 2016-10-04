@@ -13,9 +13,6 @@ import org.rustom.shroff.calculatorFromScracth.Calculation
 rule "Addition Rule"
 	salience 1
 	agenda-group "addition"  //agenda will take precedence over salience
-	//ruleflow-group     // only one rule from this group gets fired
-	//@propertyReactive  // tells the rules engine to monitor the property of a class 
-	//@watch(property1, property2, ...)
     when
         myCalculation: Calculation( operation.equals("addition"), myA : a, myB: b, myResult: result )
     then
